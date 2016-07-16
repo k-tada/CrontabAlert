@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import sharedStyles from '../sharedStyles';
 
-export default class AddArea extends Component {
+export default class Add extends Component {
   render() {
     return (
       <View style={ styles.container }>

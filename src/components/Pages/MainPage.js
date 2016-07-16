@@ -4,8 +4,8 @@ import {
   View,
   Navigator,
 } from 'react-native';
-import TitleArea from './Main/TitleArea';
-import AddArea from './Main/AddArea';
+import Title from './Main/Title';
+import Add from './Main/Add';
 
 export default class MainPage extends Component {
   render() {
@@ -20,8 +20,8 @@ export default class MainPage extends Component {
   renderScene( route, navigator ) {
     return (
       <View style={ styles.container }>
-        <TitleArea />
-        <AddArea navigator={ this.props.navigator } />
+        <Title />
+        <Add navigator={ this.props.navigator } />
       </View>
     );
   }
