@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import Title from '../common/Title';
 import Contents from './Add/Contents';
+import Cancel from './Add/Cancel';
 
 export default class AddPage extends Component {
   render() {
@@ -25,6 +26,7 @@ export default class AddPage extends Component {
       <View style={styles.container}>
         <Title />
         <Contents />
+        <Cancel navigator={ this.props.navigator } />
       </View>
     );
   }
