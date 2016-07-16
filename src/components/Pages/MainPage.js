@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import Title from './Main/Title';
 import Add from './Main/Add';
+import AlertListArea from './Main/AlertListArea';
 
 export default class MainPage extends Component {
   render() {
@@ -22,6 +23,7 @@ export default class MainPage extends Component {
       <View style={ styles.container }>
         <Title />
         <Add navigator={ this.props.navigator } />
+        <AlertListArea />
       </View>
     );
   }
