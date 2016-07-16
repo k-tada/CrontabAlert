@@ -33,13 +33,13 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
   },
   name: {
-    flex: 1,
+    flex: 2,
     textAlign: 'left',
     color: 'limegreen',
     fontSize: 18,
   },
   cron: {
-    flex: 3,
+    flex: 4,
     textAlign: 'left',
     fontSize: 18,
     color: 'limegreen',

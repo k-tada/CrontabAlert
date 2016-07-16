@@ -11,9 +11,12 @@ export default class Cancel extends Component {
   render() {
     return (
       <View style={ styles.container }>
+        <TextWithPrompt><Text style={ styles.text } ></Text></TextWithPrompt>
+        <TextWithPrompt><Text style={ styles.text } ></Text></TextWithPrompt>
+        <TextWithPrompt><Text style={ styles.text } ></Text></TextWithPrompt>
         <TextWithPrompt>
           <TouchableHighlight onPress={ this.props.navigator.pop }>
-            <Text style={ styles.text } >tap here to cancel...</Text>
+            <Text style={ styles.text } >./add-alert --cancel</Text>
           </TouchableHighlight>
         </TextWithPrompt>
       </View>
@@ -23,7 +26,7 @@ export default class Cancel extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    height: 40,
+    height: 160,
     alignSelf: 'stretch',
   },
   text: {

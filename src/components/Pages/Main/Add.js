@@ -12,7 +12,7 @@ export default class Add extends Component {
     return (
       <TextWithPrompt>
         <TouchableHighlight onPress={ this.gotoAddPage.bind(this) }>
-          <Text style={ styles.text } >tap here to add alert...</Text>
+          <Text style={ styles.text } >./add-alert</Text>
         </TouchableHighlight>
       </TextWithPrompt>
     );

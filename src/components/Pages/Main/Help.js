@@ -10,6 +10,8 @@ export default class Help extends Component {
   render() {
     return (
       <View style={ styles.container }>
+        <TextWithPrompt><Text style={ styles.titleText } ></Text></TextWithPrompt>
+        <TextWithPrompt><Text style={ styles.titleText } ></Text></TextWithPrompt>
         <TextWithPrompt>
           <Text style={ styles.titleText } >./alert-list --help</Text>
         </TextWithPrompt>
@@ -30,7 +32,7 @@ export default class Help extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    height: 120,
+    height: 200,
     alignSelf: 'stretch',
   },
   titleText: {
