@@ -4,16 +4,15 @@ import {
   Text,
   View,
 } from 'react-native';
-import sharedStyles from '../sharedStyles';
+import TextWithPrompt from '../../common/TextWithPrompt';
 
 export default class Help extends Component {
   render() {
     return (
       <View style={ styles.container }>
-        <View style={ styles.title }>
-          <Text style={ styles.prompt }>crontab-alert$ </Text>
+        <TextWithPrompt>
           <Text style={ styles.titleText } >./alert-list --help</Text>
-        </View>
+        </TextWithPrompt>
         <View style={ styles.help }>
           <View style={ styles.row }>
             <Text style={ styles.left }>usage:</Text>
@@ -30,19 +29,11 @@ export default class Help extends Component {
 }
 
 const styles = StyleSheet.create({
-  ...sharedStyles,
   container: {
     height: 120,
     alignSelf: 'stretch',
   },
-  title: {
-    height: 40,
-    flexDirection: 'row',
-    paddingTop: 5,
-    paddingBottom: 5,
-  },
   titleText: {
-    flex: 3,
     fontSize: 24,
     textAlign: 'left',
     color: 'limegreen',

@@ -4,17 +4,16 @@ import {
   Text,
   View,
 } from 'react-native';
-import sharedStyles from '../sharedStyles';
+import TextWithPrompt from '../../common/TextWithPrompt';
 import AlertList from './AlertList';
 
 export default class AlertListArea extends Component {
   render() {
     return (
       <View style={ styles.container }>
-        <View style={ styles.title }>
-          <Text style={ styles.prompt }>crontab-alert$ </Text>
+        <TextWithPrompt>
           <Text style={ styles.titleText } >./alert-list</Text>
-        </View>
+        </TextWithPrompt>
         <AlertList />
       </View>
     );
@@ -22,20 +21,11 @@ export default class AlertListArea extends Component {
 }
 
 const styles = StyleSheet.create({
-  ...sharedStyles,
   container: {
     flex: 1,
     alignSelf: 'stretch',
   },
-  title: {
-    alignSelf: 'stretch',
-    height: 40,
-    flexDirection: 'row',
-    paddingTop: 5,
-    paddingBottom: 5,
-  },
   titleText: {
-    flex: 3,
     fontSize: 24,
     textAlign: 'left',
     color: 'limegreen',
