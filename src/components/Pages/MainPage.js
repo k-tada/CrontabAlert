@@ -4,7 +4,7 @@ import {
   View,
   Navigator,
 } from 'react-native';
-import Title from './Main/Title';
+import Title from '../common/Title';
 import Add from './Main/Add';
 import AlertListArea from './Main/AlertListArea';
 import Help from './Main/Help';

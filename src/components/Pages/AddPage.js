@@ -7,6 +7,7 @@ import {
   TouchableHighlight,
   TouchableOpacity,
 } from 'react-native';
+import Title from '../common/Title';
 
 export default class AddPage extends Component {
   render() {
@@ -21,9 +22,7 @@ export default class AddPage extends Component {
   renderScene( route, navigator ) {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          This is sub page
-        </Text>
+        <Title />
       </View>
     );
   }
@@ -32,14 +31,9 @@ export default class AddPage extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
-    backgroundColor: 'lightpink',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+    backgroundColor: 'black',
   },
 });
 
