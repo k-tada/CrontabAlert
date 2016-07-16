@@ -10,6 +10,9 @@ export default class Help extends Component {
   render() {
     return (
       <View style={ styles.container }>
+        <View style={ styles.hint }>
+          <Text style={ styles.hintText } >  (Hint: you can scroll alert list)</Text>
+        </View>
         <View style={ styles.title }>
           <Text style={ styles.prompt }>crontab-alert$ </Text>
           <Text style={ styles.titleText } >./alert-list --help</Text>
@@ -32,8 +35,17 @@ export default class Help extends Component {
 const styles = StyleSheet.create({
   ...sharedStyles,
   container: {
-    height: 120,
+    height: 160,
     alignSelf: 'stretch',
+  },
+  hint: {
+    height: 32,
+    padding: 5,
+  },
+  hintText: {
+    textAlign: 'left',
+    fontSize: 18,
+    color: 'limegreen',
   },
   title: {
     height: 40,
