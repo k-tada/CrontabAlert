@@ -3,31 +3,33 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableHighlight,
 } from 'react-native';
 import TextWithPrompt from '../../common/TextWithPrompt';
+import Form from './Form';
 
 export default class Add extends Component {
   render() {
     return (
-      <TextWithPrompt>
-        <TouchableHighlight onPress={ this.gotoAddPage.bind(this) }>
-          <Text style={ styles.text } >tap here to add alert...</Text>
-        </TouchableHighlight>
-      </TextWithPrompt>
+      <View style={ styles.container }>
+        <TextWithPrompt>
+          <Text style={ styles.title }>./add-alert</Text>
+        </TextWithPrompt>
+        <Form />
+      </View>
     );
-  }
-
-  gotoAddPage() {
-    this.props.navigator.push({ id: 'add' });
   }
 }
 
 const styles = StyleSheet.create({
-  text: {
+  container: {
+    flex: 1,
+    alignSelf: 'stretch',
+  },
+  title: {
     fontSize: 24,
     textAlign: 'left',
     color: 'limegreen',
   },
 });
+
 

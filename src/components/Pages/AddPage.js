@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Title from '../common/Title';
+import Contents from './Add/Contents';
 
 export default class AddPage extends Component {
   render() {
@@ -23,6 +24,7 @@ export default class AddPage extends Component {
     return (
       <View style={styles.container}>
         <Title />
+        <Contents />
       </View>
     );
   }
