@@ -7,6 +7,7 @@ import {
 import Title from './Main/Title';
 import Add from './Main/Add';
 import AlertListArea from './Main/AlertListArea';
+import Help from './Main/Help';
 
 export default class MainPage extends Component {
   render() {
@@ -24,6 +25,7 @@ export default class MainPage extends Component {
         <Title />
         <Add navigator={ this.props.navigator } />
         <AlertListArea />
+        <Help />
       </View>
     );
   }
