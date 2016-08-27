@@ -4,10 +4,19 @@ import {
   Text,
   View,
   TextInput,
+  TouchableHighlight,
 } from 'react-native';
 import TextWithPrompt from '../../common/TextWithPrompt';
+import realm from '../../../utils/realm';
 
 export default class Form extends Component {
+  constructor( props ) {
+    super( props );
+    this.state = {
+      name: '',
+      cron: '',
+    };
+  }
   render() {
     return (
       <View style={ styles.container }>
@@ -21,6 +30,8 @@ export default class Form extends Component {
               placeholder={ 'Input name here...' }
               placeholderTextColor={ 'green' }
               returnKeyType='next'
+              onChangeText={ name => this.setState({ name }) }
+              value={ this.state.name }
             />
           </View>
         </View>
@@ -34,6 +45,8 @@ export default class Form extends Component {
               placeholder={ 'Input cron job here...' }
               placeholderTextColor={ 'green' }
               returnKeyType='send'
+              onChangeText={ cron => this.setState({ cron }) }
+              value={ this.state.cron }
             />
           </View>
         </View>
@@ -47,11 +60,21 @@ export default class Form extends Component {
         </View>
         <View style={ styles.row }>
           <View style={ styles.label }>
-            <Text style={ styles.labelText }>Tap here to add alert</Text>
+            <TouchableHighlight onPress={ this.addAlert.bind(this) }>
+              <Text style={ styles.labelText }>Tap here to add alert</Text>
+            </TouchableHighlight>
           </View>
         </View>
       </View>
     );
+  }
+
+  addAlert() {
+    const { name, cron } = this.state;
+    realm.write( () => {
+      realm.create( 'Alerts', { name, cron } );
+    });
+    this.props.navigator.pop();
   }
 }
 

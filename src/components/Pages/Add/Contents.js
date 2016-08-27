@@ -14,7 +14,7 @@ export default class Add extends Component {
         <TextWithPrompt>
           <Text style={ styles.title }>./add-alert</Text>
         </TextWithPrompt>
-        <Form />
+        <Form navigator={ this.props.navigator } />
       </View>
     );
   }
