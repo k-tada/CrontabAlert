@@ -4,10 +4,20 @@ import {
   Text,
   View,
   TextInput,
+  TouchableHighlight,
 } from 'react-native';
 import TextWithPrompt from '../../common/TextWithPrompt';
+import realm from '../../../utils/realm';
 
 export default class Form extends Component {
+  constructor( props ) {
+    super( props );
+    this.alert = realm.objectForPrimaryKey( 'Alerts', this.props.id );
+    this.state = {
+      name: this.alert.name,
+      cron: this.alert.cron,
+    };
+  }
   render() {
     return (
       <View style={ styles.container }>
@@ -21,7 +31,8 @@ export default class Form extends Component {
               placeholder={ 'Input name here...' }
               placeholderTextColor={ 'green' }
               returnKeyType='next'
-              defaultValue='仕事'
+              onChangeText={ name => this.setState({ name }) }
+              value={ this.state.name }
             />
           </View>
         </View>
@@ -35,7 +46,8 @@ export default class Form extends Component {
               placeholder={ 'Input cron job here...' }
               placeholderTextColor={ 'green' }
               returnKeyType='send'
-              defaultValue='45-55/5 8 * * 1-5'
+              onChangeText={ cron => this.setState({ cron }) }
+              value={ this.state.cron }
             />
           </View>
         </View>
@@ -49,11 +61,23 @@ export default class Form extends Component {
         </View>
         <View style={ styles.row }>
           <View style={ styles.label }>
-            <Text style={ styles.labelText }>Tap here to edit alert</Text>
+            <TouchableHighlight onPress={ this.editAlert.bind(this) }>
+              <Text style={ styles.labelText }>Tap here to edit alert</Text>
+            </TouchableHighlight>
           </View>
         </View>
       </View>
     );
+  }
+
+  editAlert() {
+    const { name, cron } = this.state;
+    realm.write( () => {
+      this.alert.name = name;
+      this.alert.cron = cron;
+      this.alert.status = true;
+    });
+    this.props.navigator.pop();
   }
 }
 

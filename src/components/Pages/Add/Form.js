@@ -72,7 +72,7 @@ export default class Form extends Component {
   addAlert() {
     const { name, cron } = this.state;
     realm.write( () => {
-      realm.create( 'Alerts', { name, cron } );
+      realm.create( 'Alerts', { alertId: new Date().getTime(), name, cron } );
     });
     this.props.navigator.pop();
   }

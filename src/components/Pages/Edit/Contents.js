@@ -14,7 +14,7 @@ export default class Edit extends Component {
         <TextWithPrompt>
           <Text style={ styles.title }>./edit-alert</Text>
         </TextWithPrompt>
-        <Form />
+        <Form { ...this.props } />
       </View>
     );
   }
