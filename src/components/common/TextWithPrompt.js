@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     flex: 2,
     fontSize: 24,
     textAlign: 'left',
-    color: 'limegreen',
+    color: 'green',
     paddingLeft: 3,
   },
   command: {
