@@ -5,16 +5,16 @@ import {
   View,
 } from 'react-native';
 import TextWithPrompt from '../../common/TextWithPrompt';
-import AlertList from './AlertList';
+import Form from './Form';
 
-export default class AlertListArea extends Component {
+export default class Edit extends Component {
   render() {
     return (
       <View style={ styles.container }>
         <TextWithPrompt>
-          <Text style={ styles.titleText } >./alert-list</Text>
+          <Text style={ styles.title }>./edit-alert</Text>
         </TextWithPrompt>
-        <AlertList navigator={ this.props.navigator } />
+        <Form />
       </View>
     );
   }
@@ -25,10 +25,11 @@ const styles = StyleSheet.create({
     flex: 1,
     alignSelf: 'stretch',
   },
-  titleText: {
+  title: {
     fontSize: 24,
     textAlign: 'left',
     color: 'limegreen',
   },
 });
+
 

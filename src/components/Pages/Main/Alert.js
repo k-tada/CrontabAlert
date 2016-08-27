@@ -3,18 +3,25 @@ import {
   StyleSheet,
   Text,
   View,
+  TouchableHighlight,
 } from 'react-native';
 
 export default class Alert extends Component {
   render() {
     const state = this.props.state ? 'ON' : 'OFF';
     return (
-      <View style={ styles.container }>
-        <Text style={ styles.name }>{ this.props.name }</Text>
-        <Text style={ styles.cron }>{ this.props.cron }</Text>
-        <Text style={[ styles.state, styles[ `state${ state }` ] ]}>{ state }</Text>
-      </View>
+      <TouchableHighlight onPress={ this.gotoEditPage.bind(this) }>
+        <View style={ styles.container }>
+          <Text style={ styles.name }>{ this.props.name }</Text>
+          <Text style={ styles.cron }>{ this.props.cron }</Text>
+          <Text style={[ styles.state, styles[ `state${ state }` ] ]}>{ state }</Text>
+        </View>
+      </TouchableHighlight>
     );
+  }
+
+  gotoEditPage() {
+    this.props.navigator.push({ id: 'edit' });
   }
 }
 

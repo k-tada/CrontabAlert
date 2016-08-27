@@ -47,7 +47,7 @@ export default class AlertList extends Component {
     ];
 
     const alertListView = alertList.map( ( alert, i ) => {
-      return <Alert key={ `alert${i}` } { ...alert } />;
+      return <Alert key={ `alert${i}` } navigator={ this.props.navigator } { ...alert } />;
     });
 
     return (

@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
+  Text,
   View,
   Navigator,
+  TouchableHighlight,
+  TouchableOpacity,
 } from 'react-native';
 import Title from '../common/Title';
-import Add from './Main/Add';
-import AlertListArea from './Main/AlertListArea';
-import Help from './Main/Help';
+import Contents from './Edit/Contents';
+import Cancel from './Edit/Cancel';
 
-export default class MainPage extends Component {
+export default class EditPage extends Component {
   render() {
     return (
       <Navigator
@@ -21,11 +23,10 @@ export default class MainPage extends Component {
 
   renderScene( route, navigator ) {
     return (
-      <View style={ styles.container }>
+      <View style={styles.container}>
         <Title />
-        <Add navigator={ this.props.navigator } />
-        <AlertListArea navigator={ this.props.navigator } />
-        <Help />
+        <Contents />
+        <Cancel navigator={ this.props.navigator } />
       </View>
     );
   }
@@ -39,4 +40,5 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
   },
 });
+
 
