@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import hoge from './hoge';
+import alerts from './alerts';
 
 export default combineReducers({
-  hoge
+  alerts
 });
 
