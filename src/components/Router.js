@@ -8,7 +8,7 @@ export default class Router extends Component {
     switch ( this.props.route.id ) {
       case 'main': return <MainPage navigator={ this.props.navigator } />;
       case 'add':  return <AddPage navigator={ this.props.navigator } />;
-      case 'edit': return <EditPage navigator={ this.props.navigator } />;
+      case 'edit': return <EditPage navigator={ this.props.navigator } id={ this.props.route.params.id } />;
     }
   }
 }

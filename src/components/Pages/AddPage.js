@@ -25,7 +25,7 @@ export default class AddPage extends Component {
     return (
       <View style={styles.container}>
         <Title />
-        <Contents />
+        <Contents navigator={ this.props.navigator } />
         <Cancel navigator={ this.props.navigator } />
       </View>
     );

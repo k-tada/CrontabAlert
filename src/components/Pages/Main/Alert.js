@@ -3,25 +3,43 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableHighlight,
+  TouchableWithoutFeedback,
 } from 'react-native';
+import realm from '../../../utils/realm';
 
 export default class Alert extends Component {
+  constructor( props ) {
+    super( props );
+    this.state = {
+      alert: realm.objectForPrimaryKey( 'Alerts', this.props.id )
+    };
+  }
+
   render() {
-    const state = this.props.state ? 'ON' : 'OFF';
+    const state = this.state.alert.state ? 'ON' : 'OFF';
     return (
-      <TouchableHighlight onPress={ this.gotoEditPage.bind(this) }>
+      <TouchableWithoutFeedback
+        onPress={ this.gotoEditPage.bind(this) }
+        onLongPress={ this.toggle.bind(this) }
+      >
         <View style={ styles.container }>
-          <Text style={ styles.name }>{ this.props.name }</Text>
-          <Text style={ styles.cron }>{ this.props.cron }</Text>
+          <Text style={ styles.name }>{ this.state.alert.name }</Text>
+          <Text style={ styles.cron }>{ this.state.alert.cron }</Text>
           <Text style={[ styles.state, styles[ `state${ state }` ] ]}>{ state }</Text>
         </View>
-      </TouchableHighlight>
+      </TouchableWithoutFeedback>
     );
   }
 
+  toggle() {
+    realm.write( () => {
+      this.state.alert.state = !this.state.alert.state;
+    });
+    this.setState({ alert: this.state.alert });
+  }
+
   gotoEditPage() {
-    this.props.navigator.push({ id: 'edit' });
+    this.props.navigator.push({ id: 'edit', params: { id: this.props.id } });
   }
 }
 

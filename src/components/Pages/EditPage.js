@@ -25,7 +25,7 @@ export default class EditPage extends Component {
     return (
       <View style={styles.container}>
         <Title />
-        <Contents />
+        <Contents { ...this.props } />
         <Cancel navigator={ this.props.navigator } />
       </View>
     );
