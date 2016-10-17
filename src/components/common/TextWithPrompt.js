@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   },
   prompt: {
     flex: 2,
-    fontSize: 24,
+    fontSize: 22,
     textAlign: 'left',
     color: 'green',
     paddingLeft: 3,
